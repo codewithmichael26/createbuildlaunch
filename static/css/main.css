@@ -1,0 +1,1702 @@
+/* =============================================================================
+   Bootstrap 5 Color Scheme - override these variables per project
+   ============================================================================= */
+
+:root {
+    /* Brand colors */
+    --bs-blue:    #0d6efd;
+    --bs-indigo:  #6610f2;
+    --bs-purple:  #6f42c1;
+    --bs-pink:    #d63384;
+    --bs-red:     #dc3545;
+    --bs-orange:  #fd7e14;
+    --bs-yellow:  #ffc107;
+    --bs-green:   #198754;
+    --bs-teal:    #20c997;
+    --bs-cyan:    #0dcaf0;
+    --bs-white:   #ffffff;
+    --bs-gray:    #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-black:   #000000;
+
+    /* Theme colors */
+    --bs-primary:   #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success:   #198754;
+    --bs-info:      #0dcaf0;
+    --bs-warning:   #ffc107;
+    --bs-danger:    #dc3545;
+    --bs-light:     #f8f9fa;
+    --bs-dark:      #212529;
+
+    /* Theme color RGB values (used by Bootstrap utilities) */
+    --bs-primary-rgb:   13, 110, 253;
+    --bs-secondary-rgb: 108, 117, 125;
+    --bs-success-rgb:   25, 135, 84;
+    --bs-info-rgb:      13, 202, 240;
+    --bs-warning-rgb:   255, 193, 7;
+    --bs-danger-rgb:    220, 53, 69;
+    --bs-light-rgb:     248, 249, 250;
+    --bs-dark-rgb:      33, 37, 41;
+
+    /* Body */
+    --bs-body-color:      #212529;
+    --bs-body-bg:         #ffffff;
+    --bs-body-font-family: system-ui, -apple-system, sans-serif;
+    --bs-body-font-size:  1rem;
+    --bs-body-line-height: 1.5;
+
+    /* Links */
+    --bs-link-color:       #0d6efd;
+    --bs-link-hover-color: #0a58ca;
+
+    /* Borders */
+    --bs-border-color: #dee2e6;
+    --bs-border-radius: 0.375rem;
+
+    /* Grays */
+    --bs-gray-100: #f8f9fa;
+    --bs-gray-200: #e9ecef;
+    --bs-gray-300: #dee2e6;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #212529;
+}
+
+/* =============================================================================
+   Global styles
+   ============================================================================= */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    line-height: var(--bs-body-line-height);
+    color: var(--cbl-main-text, var(--bs-body-color));
+    background-color: var(--cbl-main-bg, var(--bs-body-bg));
+}
+
+a {
+    color: var(--cbl-main-link, var(--bs-link-color));
+}
+
+a:hover {
+    color: var(--cbl-main-link-hover, var(--bs-link-hover-color));
+}
+
+/* Keyboard users need a strong, consistent focus target across controls. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.btn:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--bs-info, #0dcaf0) 80%, #ffffff 20%);
+    outline-offset: 2px;
+    box-shadow: none !important;
+}
+
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 11000;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.4rem;
+    background: #111827;
+    color: #ffffff !important;
+    text-decoration: none;
+    transition: top 0.15s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    top: 1rem;
+}
+
+/* =============================================================================
+   Layout
+   ============================================================================= */
+
+header, main, footer {
+    padding: 1rem 2rem;
+}
+
+main {
+    background: var(--cbl-main-bg, var(--bs-body-bg));
+    color: var(--cbl-main-text, var(--bs-body-color));
+    min-height: 40vh;
+}
+
+#navbar-region,
+#footer-region {
+    background: var(--cbl-chrome-bg, var(--bs-primary)) !important;
+    color: var(--cbl-chrome-text, #fff) !important;
+}
+
+#footer-region {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#footer-region .container,
+#footer-region .container-fluid {
+    background: transparent !important;
+}
+
+#footer-region footer {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    background: var(--cbl-chrome-bg, var(--bs-primary)) !important;
+    color: var(--cbl-chrome-text, #fff) !important;
+}
+
+#navbar-region a,
+#footer-region a,
+#footer-region .nav-link,
+#footer-region .text-body-secondary,
+#footer-region .link-body-emphasis {
+    color: var(--cbl-chrome-link, currentColor) !important;
+}
+
+#navbar-region a:hover,
+#footer-region a:hover,
+#footer-region .nav-link:hover {
+    color: var(--cbl-chrome-link-hover, currentColor) !important;
+}
+
+#navbar-region .cbl-navbar-auth .dropdown-menu {
+    --bs-dropdown-bg: color-mix(in srgb, var(--cbl-chrome-bg, var(--bs-primary)) 86%, #000 14%);
+    --bs-dropdown-color: var(--cbl-chrome-text, #fff);
+    --bs-dropdown-link-color: var(--cbl-chrome-text, #fff);
+    --bs-dropdown-link-hover-color: var(--cbl-chrome-text, #fff);
+    --bs-dropdown-link-hover-bg: color-mix(in srgb, var(--cbl-chrome-text, #fff) 16%, transparent);
+    --bs-dropdown-border-color: color-mix(in srgb, var(--cbl-chrome-text, #fff) 24%, transparent);
+    --bs-dropdown-divider-bg: color-mix(in srgb, var(--cbl-chrome-text, #fff) 24%, transparent);
+    background: color-mix(in srgb, var(--cbl-chrome-bg, var(--bs-primary)) 86%, #000 14%);
+    color: var(--cbl-chrome-text, #fff);
+    border: 1px solid color-mix(in srgb, var(--cbl-chrome-text, #fff) 24%, transparent);
+}
+
+#navbar-region .cbl-navbar-auth .dropdown-item {
+    color: var(--cbl-chrome-text, #fff);
+}
+
+#navbar-region .cbl-navbar-auth .dropdown-item:hover,
+#navbar-region .cbl-navbar-auth .dropdown-item:focus {
+    color: var(--cbl-chrome-text, #fff);
+    background: color-mix(in srgb, var(--cbl-chrome-text, #fff) 16%, transparent);
+}
+
+#navbar-region .cbl-navbar-auth .dropdown-divider {
+    border-top-color: color-mix(in srgb, var(--cbl-chrome-text, #fff) 24%, transparent);
+}
+
+#navbar-region .cbl-navbar-auth .btn-outline-primary {
+    --bs-btn-color: var(--cbl-chrome-link, #fff);
+    --bs-btn-border-color: color-mix(in srgb, var(--cbl-chrome-link, #fff) 60%, transparent);
+    --bs-btn-hover-color: var(--cbl-chrome-text, #fff);
+    --bs-btn-hover-bg: color-mix(in srgb, var(--cbl-chrome-text, #fff) 14%, transparent);
+    --bs-btn-hover-border-color: var(--cbl-chrome-link, #fff);
+    --bs-btn-active-color: var(--cbl-chrome-text, #fff);
+    --bs-btn-active-bg: color-mix(in srgb, var(--cbl-chrome-text, #fff) 20%, transparent);
+    --bs-btn-active-border-color: var(--cbl-chrome-link, #fff);
+    --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
+}
+
+#navbar-region .cbl-navbar-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    border: 2px solid transparent;
+    text-decoration: none;
+    transition: background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+}
+
+#navbar-region .cbl-navbar-cta:hover {
+    transform: translateY(-1px);
+}
+
+#navbar-region .cbl-navbar-cta--accent {
+    background: #ea580c;
+    border-color: #ffffff;
+    color: #ffffff !important;
+}
+
+#navbar-region .cbl-navbar-cta--accent:hover,
+#navbar-region .cbl-navbar-cta--accent:focus {
+    background: #c2410c;
+    border-color: #ffffff;
+    color: #ffffff !important;
+}
+
+#navbar-region .cbl-navbar-cta--outline {
+    background: transparent;
+    border-color: #ffffff;
+    color: #ffffff !important;
+}
+
+#navbar-region .cbl-navbar-cta--outline:hover,
+#navbar-region .cbl-navbar-cta--outline:focus {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: #ffffff;
+    color: #ffffff !important;
+}
+
+#navbar-region .cbl-navbar-cta--light {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: var(--cbl-chrome-bg, var(--bs-primary)) !important;
+}
+
+#navbar-region .cbl-navbar-cta--light:hover,
+#navbar-region .cbl-navbar-cta--light:focus {
+    background: #f1f5f9;
+    border-color: #ffffff;
+    color: var(--cbl-chrome-bg, var(--bs-primary)) !important;
+}
+
+#footer-region .border-top,
+#footer-region .border-bottom {
+    border-color: color-mix(in srgb, var(--cbl-chrome-text, #fff) 22%, transparent) !important;
+}
+
+/* NOTE: A bare `nav { display:flex }` rule used to live here. It leaked onto
+   every <nav> on the site (public navbar, dashboard sidebar, blog pagination)
+   and forced the dashboard sidebar links into a horizontal row. It was removed
+   because the real navs supply their own layout: the public navbar via
+   Bootstrap's .navbar, and blog pagination via .d-flex. Style specific navs by
+   class, never the bare element. */
+
+/* =============================================================================
+   Messages - map Django message tags to Bootstrap alert colors
+   ============================================================================= */
+
+.messages {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+}
+
+.message {
+    padding: 0.75rem 1rem;
+    border-radius: var(--bs-border-radius);
+    margin-bottom: 0.5rem;
+}
+
+.message--success { background: #d1e7dd; color: #0a3622; }
+.message--error   { background: #f8d7da; color: #58151c; }
+.message--warning { background: #fff3cd; color: #664d03; }
+.message--info    { background: #cff4fc; color: #055160; }
+
+/* =============================================================================
+   Forms
+   ============================================================================= */
+
+form p {
+    margin-bottom: 0.75rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    font-size: 1rem;
+}
+
+button[type="submit"] {
+    padding: 0.5rem 1.25rem;
+    background: var(--bs-primary);
+    color: var(--bs-white);
+    border: none;
+    border-radius: var(--bs-border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: var(--bs-link-hover-color);
+}
+
+/* =============================================================================
+   Inline Edit Mode
+   Styles are only visible when <body class="edit-mode"> is present, which
+   base.html adds for authenticated staff users.
+   ============================================================================= */
+
+/* Floating toolbar: fixed badge bottom-right */
+#staff-toolbar {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    background: #212529;
+    color: #fff;
+    padding: 0.4rem 0.6rem 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+body.staff-user #staff-toolbar {
+    top: 0.6rem;
+}
+body.staff-user .cbl-navbar-shell.sticky-top {
+    top: 3.25rem;
+}
+
+#staff-toolbar .staff-toolbar-label {
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: move;
+    user-select: none;
+}
+
+/* When previewing (edit mode off), tint the toolbar so the state is obvious */
+body:not(.edit-mode) #staff-toolbar {
+    background: #6c757d;
+}
+
+/* Editable wrapper: provides the position context for the pencil button */
+body.edit-mode .edit-wrap {
+    position: relative;
+}
+
+/* Pencil / camera button: hidden until hover */
+.edit-pencil-btn {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+    width: 1.9rem;
+    height: 1.9rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s ease, transform 0.12s ease;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    line-height: 1;
+}
+
+body.edit-mode .edit-wrap:hover > .edit-pencil-btn {
+    opacity: 1;
+}
+
+body.edit-mode .edit-wrap .edit-pencil-btn:hover {
+    transform: scale(1.12);
+    background: rgba(0, 0, 0, 0.85);
+}
+
+/* Slight blue outline on the entire wrap while hovered in edit mode */
+body.edit-mode .edit-wrap:hover {
+    outline: 2px dashed rgba(13, 110, 253, 0.35);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Edit form inserted inside the wrap */
+.edit-form {
+    padding: 0.25rem 0 0.5rem;
+}
+
+.edit-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* Success flash: brief green outline after a save */
+@keyframes edit-saved-flash {
+    0%   { outline: 3px solid #198754; outline-offset: 3px; }
+    70%  { outline: 3px solid #198754; outline-offset: 3px; }
+    100% { outline: 3px solid transparent; outline-offset: 3px; }
+}
+
+body.edit-mode .edit-wrap.edit-saved {
+    animation: edit-saved-flash 1.4s ease-out forwards;
+    border-radius: 4px;
+}
+
+/* Upload in-progress: dim the wrap so the user knows something is happening */
+body.edit-mode .edit-wrap.is-uploading {
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+body.edit-mode .edit-wrap.is-uploading::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    z-index: 50;
+}
+
+/* =============================================================================
+   Section spacing presets (applied via body class from site navbar_config)
+   ============================================================================= */
+
+body.cbl-spacing-compact .section-wrap {
+    margin-top: -1.5rem;
+}
+body.cbl-spacing-spacious .section-wrap {
+    margin-top: 3rem;
+}
+
+/* =============================================================================
+   Structural Edit Mode (add / delete sections and items)
+   Only visible when <body class="edit-mode"> is present.
+   ============================================================================= */
+
+/* Section wrapper: outline on hover so staff can see section boundaries */
+body.edit-mode .section-wrap {
+    position: relative;
+}
+
+body.edit-mode .section-wrap:hover {
+    outline: 2px dashed rgba(var(--bs-primary-rgb), 0.4);
+    outline-offset: -2px;
+}
+
+/* Hidden sections (is_visible=False) appear dimmed to staff */
+body.edit-mode .section-wrap.section-hidden {
+    opacity: 0.45;
+}
+
+body.edit-mode .section-wrap.section-hidden::before {
+    content: "Hidden";
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 30;
+    background: #6c757d;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* Per-section toolbar: appears top-right of a section on hover */
+body.edit-mode .section-toolbar {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 40;
+    display: flex;
+    gap: 0.4rem;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    pointer-events: none;
+}
+
+body.edit-mode .section-wrap:hover > .section-toolbar {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Navbar/Footer region controls in edit mode */
+body.edit-mode .chrome-region {
+    position: relative;
+}
+
+body.edit-mode .chrome-hover-add {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.8rem;
+    z-index: 1295;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+
+body.edit-mode #navbar-region:hover > .chrome-hover-add-navbar,
+body.edit-mode #footer-region:hover > .chrome-hover-add-footer {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+body.edit-mode .chrome-hover-add:hover,
+body.edit-mode .chrome-hover-add:focus-within {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+body.edit-mode .chrome-hover-add .btn {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+
+/* Cluster the "Add item" dropdown with its sibling controls (Settings / Hide /
+   Delete-all). They sit in a pill-shaped group so the user sees them as one
+   floating affordance, not four separate buttons. */
+body.edit-mode .chrome-hover-add-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 999px;
+    padding: 0.25rem 0.35rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+}
+
+body.edit-mode .chrome-hover-add-extra {
+    padding: 0.2rem 0.55rem;
+    line-height: 1;
+    box-shadow: none !important;
+}
+
+body.edit-mode .chrome-hover-add-group .chrome-hover-add-extra,
+body.edit-mode .chrome-hover-add-group .chrome-hover-add-extra i {
+    color: #212529 !important;
+}
+
+body.edit-mode .chrome-hover-add-group .chrome-hover-add-extra:hover,
+body.edit-mode .chrome-hover-add-group .chrome-hover-add-extra:focus {
+    color: #212529 !important;
+    background: #e9ecef;
+    border-color: #ced4da;
+}
+
+body.edit-mode .cbl-navbar-shell {
+    z-index: 1500;
+}
+body.edit-mode .cbl-navbar-zone {
+    cursor: pointer;
+}
+body.edit-mode .cbl-navbar-zone:hover {
+    box-shadow: inset 0 0 0 2px rgba(var(--bs-primary-rgb), 0.45);
+}
+body.edit-mode .cbl-navbar-zone.cbl-inspector-selected {
+    box-shadow: inset 0 0 0 2px rgba(var(--bs-primary-rgb), 0.8);
+}
+
+body.edit-mode #edit-sidebar {
+    position: fixed;
+    top: calc(var(--cbl-nav-height-actual, 76px) + 0.5rem);
+    right: 1rem;
+    width: 19rem;
+    max-height: calc(100vh - var(--cbl-nav-height-actual, 76px) - 1.5rem);
+    overflow: auto;
+    z-index: 1400;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+    backdrop-filter: blur(8px);
+}
+
+body.edit-mode .edit-sidebar-header {
+    padding: 0.9rem 1rem 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.edit-mode .edit-sidebar-kicker {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6c757d;
+}
+
+body.edit-mode .edit-sidebar-title {
+    margin: 0.15rem 0 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+body.edit-mode .edit-sidebar-body {
+    padding: 0.9rem 1rem 1rem;
+}
+
+body.edit-mode .edit-sidebar-section + .edit-sidebar-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.edit-mode .edit-sidebar-section h3 {
+    font-size: 0.82rem;
+    margin-bottom: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6c757d;
+}
+
+body.edit-mode .edit-sidebar .form-control,
+body.edit-mode .edit-sidebar .form-select {
+    font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   Color field picker (sidebar)
+   -------------------------------------------------------------------------- */
+.cbl-color-trigger {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,.18);
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform .1s;
+}
+.cbl-color-trigger:hover { transform: scale(1.08); }
+.cbl-color-popover {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    z-index: 1600;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.13);
+    border-radius: .6rem;
+    padding: .6rem;
+    width: 15rem;
+    box-shadow: 0 8px 24px rgba(15,23,42,.16);
+}
+.cbl-color-group-label {
+    font-size: .72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #94a3b8;
+    margin-bottom: .35rem;
+}
+.cbl-color-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: .5rem;
+}
+.cbl-color-swatch {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,.12);
+    cursor: pointer;
+    transition: transform .1s;
+    position: relative;
+}
+.cbl-color-swatch:hover { transform: scale(1.15); z-index: 1; }
+.cbl-color-swatch.cbl-swatch-active {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+}
+.cbl-color-none-swatch {
+    background: repeating-conic-gradient(#e0e0e0 0% 25%, #f5f5f5 0% 50%) 0 0 / 8px 8px;
+}
+.cbl-native-picker {
+    width: 2.1rem;
+    height: 2.1rem;
+    padding: 1px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 5px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Rich text editor toolbar (in settings sidebar) */
+.cbl-rich-editor [contenteditable]:focus {
+    outline: 2px solid rgba(var(--bs-primary-rgb), 0.35);
+    border-color: var(--bs-primary);
+}
+.cbl-rich-toolbar .btn {
+    padding: 0.1rem 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+body.edit-mode .cbl-inspector-selected {
+    outline: 2px solid rgba(var(--bs-primary-rgb), 0.55) !important;
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+@media (min-width: 1200px) {
+    body.edit-mode main {
+        padding-right: calc(2rem + 20rem);
+    }
+}
+
+@media (max-width: 1199.98px) {
+    body.edit-mode #edit-sidebar {
+        display: none;
+    }
+}
+
+/* Template picker cards (new nav link / page creation flow) */
+body.edit-mode .cbl-tpl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+}
+
+body.edit-mode .cbl-tpl-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+    padding: 0.45rem 0.55rem;
+    border: 1.5px solid var(--bs-border-color);
+    border-radius: 0.5rem;
+    background: #fff;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+}
+
+body.edit-mode .cbl-tpl-card:hover {
+    border-color: var(--bs-primary);
+    background: rgba(var(--bs-primary-rgb), 0.04);
+}
+
+body.edit-mode .cbl-tpl-card.cbl-tpl-selected {
+    border-color: var(--bs-primary);
+    background: rgba(var(--bs-primary-rgb), 0.08);
+}
+
+body.edit-mode .cbl-tpl-icon {
+    font-size: 1.1rem;
+    color: var(--bs-primary);
+}
+
+body.edit-mode .cbl-tpl-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+body.edit-mode .cbl-tpl-desc {
+    font-size: 0.7rem;
+    color: #6c757d;
+    line-height: 1.2;
+}
+
+/* Inline rename input: appears in-place where label text was; same size + font */
+.cbl-inline-rename {
+    font: inherit;
+    color: inherit;
+    background: #fff;
+    border: 1px solid var(--bs-primary, #0d6efd);
+    border-radius: 4px;
+    padding: 2px 6px;
+    width: auto;
+    min-width: 8ch;
+    max-width: 100%;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.15);
+}
+
+/* Item wrapper highlight + delete button */
+body.edit-mode .item-editable {
+    position: relative;
+}
+
+body.edit-mode .item-editable:hover {
+    outline: 1px dashed rgba(var(--bs-danger-rgb), 0.4);
+    outline-offset: 2px;
+}
+
+body.edit-mode .item-delete-btn {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    z-index: 35;
+    padding: 0.1rem 0.4rem;
+    line-height: 1;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+body.edit-mode .item-editable:hover > .item-delete-btn {
+    opacity: 1;
+}
+
+/* Add-section bar at the bottom of the page */
+body.edit-mode #add-section-bar {
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+}
+
+/* Section type picker that drops down from the Add section button */
+body.edit-mode .section-type-picker {
+    max-width: 640px;
+    margin: 1rem auto 0;
+    padding: 1rem;
+    background: var(--bs-body-bg);
+    border: 1px solid rgba(var(--bs-primary-rgb), 0.3);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide all structural controls when NOT in edit mode (safety) */
+body:not(.edit-mode) .section-toolbar,
+body:not(.edit-mode) .chrome-hover-add,
+body:not(.edit-mode) .item-delete-btn,
+body:not(.edit-mode) #add-section-bar {
+    display: none !important;
+}
+
+/* Section config panel (gear menu) */
+body.edit-mode .section-config-panel {
+    position: absolute;
+    top: 3rem;
+    right: 0.5rem;
+    z-index: 50;
+    width: 260px;
+    background: var(--bs-body-bg);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+    padding: 0.85rem;
+    text-align: left;
+}
+
+body.edit-mode .section-config-panel .scp-row {
+    margin-bottom: 0.6rem;
+}
+
+body.edit-mode .section-config-panel .scp-row:last-child {
+    margin-bottom: 0;
+}
+
+body.edit-mode .section-config-panel label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--bs-body-color);
+    margin-bottom: 0.2rem;
+}
+
+body.edit-mode .section-config-panel .scp-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding-top: 0.3rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* The toolbar now holds several icon buttons; keep them tidy */
+body.edit-mode .section-toolbar .btn {
+    padding: 0.2rem 0.5rem;
+    line-height: 1;
+}
+
+/* Delete-page button sits in the floating toolbar */
+#staff-toolbar .delete-page-btn {
+    padding: 0.25rem 0.6rem;
+}
+
+/* Undo toast (soft-delete) */
+.undo-toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #212529;
+    color: #fff;
+    padding: 0.6rem 0.75rem 0.6rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+    font-size: 0.9rem;
+    animation: undo-toast-in 0.2s ease;
+}
+
+.undo-toast-out {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+@keyframes undo-toast-in {
+    from { opacity: 0; transform: translate(-50%, 0.5rem); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.undo-toast .undo-toast-btn {
+    font-weight: 600;
+}
+
+/* =============================================================================
+   Stage 2: Page-status panel + live nav editing
+   ============================================================================= */
+
+/* Page-status panel: floating card, bottom-left */
+#page-status-panel {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 9000;
+    width: 250px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+    padding: 0.85rem;
+    font-size: 0.85rem;
+}
+
+#page-status-panel .psp-header {
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+#page-status-panel .psp-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 0.7rem;
+}
+
+#page-status-panel .psp-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+/* Live nav editing controls */
+body.edit-mode .nav-editable {
+    position: relative;
+}
+body.edit-mode .nav-editable:hover {
+    outline: 2px dashed rgba(var(--bs-primary-rgb), 0.4);
+    outline-offset: 2px;
+}
+body.edit-mode .nav-editable-child:hover {
+    outline: 2px dashed rgba(var(--bs-primary-rgb), 0.4);
+    outline-offset: 1px;
+}
+body.edit-mode .brand-editable {
+    position: relative;
+}
+body.edit-mode .brand-editable:hover {
+    outline: 2px dashed rgba(var(--bs-primary-rgb), 0.4);
+    outline-offset: 2px;
+}
+body.edit-mode .cbl-nav-block:hover {
+    outline: 2px dashed rgba(var(--bs-primary-rgb), 0.4);
+    outline-offset: 2px;
+}
+
+body.edit-mode .nav-edit-controls {
+    display: none;
+    position: absolute;
+    top: -0.6rem;
+    right: -0.6rem;
+    z-index: 60;
+    gap: 2px;
+}
+body.edit-mode .nav-editable-child {
+    position: relative;
+}
+body.edit-mode .nav-edit-controls-child {
+    top: 0.2rem;
+    right: 0.25rem;
+    z-index: 1200;
+}
+body.edit-mode .nav-editable-child:hover > .nav-edit-controls-child,
+body.edit-mode .nav-editable-child:focus-within > .nav-edit-controls-child {
+    display: inline-flex;
+}
+body.edit-mode .nav-editable-child .nav-drag-handle {
+    left: 0.25rem;
+    top: 0.95rem;
+    transform: none;
+}
+
+body.edit-mode .nav-editable:hover > .nav-edit-controls,
+body.edit-mode .nav-editable:focus-within > .nav-edit-controls {
+    display: inline-flex;
+}
+body.edit-mode .brand-editable:hover .brand-edit-controls {
+    display: inline-flex;
+}
+body.edit-mode [data-chrome-slot-field]:hover .chrome-slot-edit-controls {
+    display: inline-flex;
+}
+body.edit-mode .cbl-nav-block {
+    position: relative;
+}
+body.edit-mode .cbl-nav-block:hover > .chrome-slot-edit-controls {
+    display: inline-flex;
+}
+body.edit-mode .cbl-nav-block:focus-within > .chrome-slot-edit-controls {
+    display: inline-flex;
+}
+body.edit-mode .cbl-nav-block > .chrome-slot-edit-controls {
+    display: none;
+    z-index: 1300;
+}
+body.edit-mode .cbl-nav-block:hover > .chrome-slot-edit-controls,
+body.edit-mode .cbl-nav-block:focus-within > .chrome-slot-edit-controls {
+    display: inline-flex;
+}
+
+body.edit-mode .cbl-nav-block-links > .chrome-slot-edit-controls {
+    display: none !important;
+}
+
+
+body.edit-mode .nav-edit-btn {
+    border: none;
+    background: #0d6efd;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.edit-mode .nav-edit-btn.nav-edit-del {
+    background: #dc3545;
+}
+
+body.edit-mode .nav-edit-btn.nav-edit-slot-btn {
+    width: 26px;
+    height: 22px;
+    font-size: 0.95rem;
+    background: #6c757d;
+}
+
+body.edit-mode .nav-edit-btn.nav-edit-slot-active {
+    background: #198754;
+}
+
+body.edit-mode .nav-edit-btn.nav-edit-slot-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+body.edit-mode .nav-add-btn {
+    border: 1px dashed rgba(var(--bs-primary-rgb), 0.6);
+    background: transparent;
+    color: var(--bs-primary, #0d6efd);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.4rem;
+}
+
+body.edit-mode .nav-add-btn:hover {
+    background: rgba(var(--bs-primary-rgb), 0.1);
+}
+
+/* Hide all Stage 2 controls when not in edit mode (safety) */
+body:not(.edit-mode) #page-status-panel,
+body:not(.edit-mode) .nav-edit-controls,
+body:not(.edit-mode) .nav-add-link {
+    display: none !important;
+}
+
+/* Nav drag handle (shows on hover, only in edit mode) */
+body.edit-mode .nav-drag-handle {
+    display: none;
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: grab;
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 0.9rem;
+    user-select: none;
+    z-index: 55;
+}
+
+body.edit-mode .nav-editable:hover .nav-drag-handle {
+    display: inline-flex;
+}
+
+body.edit-mode .nav-drag-handle:active {
+    cursor: grabbing;
+}
+
+body.edit-mode .nav-dragging {
+    opacity: 0.5;
+}
+
+/* Footer link/column editing */
+body.edit-mode .footer-link-editable {
+    position: relative;
+}
+body.edit-mode .footer-link-editable:hover {
+    outline: 2px dashed rgba(var(--bs-primary-rgb), 0.4);
+    outline-offset: 2px;
+}
+body.edit-mode .footer-col-editable:hover {
+    outline: 2px dashed rgba(var(--bs-primary-rgb), 0.4);
+    outline-offset: 2px;
+}
+
+body.edit-mode .footer-edit-controls {
+    display: none;
+    position: absolute;
+    top: -0.4rem;
+    right: -0.4rem;
+    z-index: 50;
+    gap: 2px;
+}
+
+body.edit-mode .footer-link-editable:hover .footer-edit-controls {
+    display: inline-flex;
+}
+
+body.edit-mode .footer-add-btn {
+    background: transparent;
+    color: var(--bs-primary, #0d6efd);
+    border: 1px dashed rgba(var(--bs-primary-rgb), 0.5);
+    border-radius: 6px;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 0.4rem;
+}
+
+body.edit-mode .footer-add-btn:hover {
+    background: rgba(var(--bs-primary-rgb), 0.1);
+}
+
+body.edit-mode .footer-add-col-btn {
+    background: transparent;
+    color: var(--bs-primary, #0d6efd);
+    border: 2px dashed rgba(var(--bs-primary-rgb), 0.5);
+    border-radius: 8px;
+    padding: 2rem 1rem;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+body.edit-mode .footer-add-col-btn:hover {
+    background: rgba(var(--bs-primary-rgb), 0.06);
+}
+
+/* Hide footer edit controls outside edit mode */
+body:not(.edit-mode) .footer-edit-controls,
+body:not(.edit-mode) .footer-add-link,
+body:not(.edit-mode) .footer-add-column,
+body:not(.edit-mode) .nav-drag-handle {
+    display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   CBL universal navbar engine
+   -------------------------------------------------------------------------- */
+.cbl-navbar-shell {
+    background: var(--cbl-chrome-bg, var(--bs-body-bg));
+    z-index: 1020;
+    min-height: var(--cbl-nav-height, auto);
+    border-bottom-width: var(--cbl-nav-border-width, 0);
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, .12);
+    background: var(--cbl-nav-bg, var(--cbl-chrome-bg, var(--bs-body-bg))) !important;
+    color: var(--cbl-nav-text, var(--cbl-chrome-text, inherit)) !important;
+}
+.cbl-navbar-shell .navbar {
+    min-height: var(--cbl-nav-height, auto);
+    background: inherit !important;
+    color: inherit !important;
+}
+.cbl-navbar-shell .navbar > .container,
+.cbl-navbar-shell .navbar > .container-fluid {
+    max-width: var(--cbl-nav-container-max, none);
+    padding-left: var(--cbl-nav-pad-x, 0);
+    padding-right: var(--cbl-nav-pad-x, 0);
+    padding-top: var(--cbl-nav-pad-y, 0);
+    padding-bottom: var(--cbl-nav-pad-y, 0);
+}
+.cbl-navbar-shadow {
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    box-shadow: 0 0.25rem 1rem rgba(15, 23, 42, .04);
+}
+.cbl-navbar-dark {
+    background: #111827;
+    color: #fff;
+}
+.cbl-navbar-primary {
+    background: var(--bs-primary);
+    color: #fff;
+}
+.cbl-navbar-transparent {
+    background: transparent;
+    box-shadow: none;
+    border-bottom-color: transparent;
+}
+.cbl-navbar-desktop {
+    display: none;
+    grid-template-columns: var(--cbl-nav-grid, auto 1fr auto);
+    gap: 1rem;
+    align-items: center;
+}
+.cbl-nav-zones-center-heavy .cbl-navbar-desktop {
+    grid-template-columns: var(--cbl-nav-grid, minmax(0, 1fr) 2fr minmax(0, 1fr));
+}
+.cbl-nav-zones-split .cbl-navbar-desktop {
+    grid-template-columns: var(--cbl-nav-grid, 1fr 1fr 1fr);
+}
+
+/* =============================================================================
+   Item style presets (.cbl-items-* on section wrapper)
+   Targets direct children of Bootstrap grid columns so it works for
+   feature_list, gallery, testimonials, pricing_table without template changes.
+   ============================================================================= */
+.cbl-items-bordered [class*="col-"] > *,
+.cbl-items-bordered .col > * {
+    border: 1px solid rgba(0, 0, 0, .12);
+    border-radius: .375rem;
+    padding: 1rem;
+}
+.cbl-items-card [class*="col-"] > *,
+.cbl-items-card .col > * {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .08);
+    border-radius: .5rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .06);
+}
+.cbl-items-card-shadow [class*="col-"] > *,
+.cbl-items-card-shadow .col > * {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .06);
+    border-radius: .6rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .10);
+}
+
+/* Second-row overflow: center zone drops below brand + right */
+.cbl-navbar-overflow-second-row .cbl-navbar-desktop {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+.cbl-navbar-overflow-second-row .cbl-navbar-left  { grid-area: 1 / 1; }
+.cbl-navbar-overflow-second-row .cbl-navbar-right  { grid-area: 1 / 2; justify-content: flex-end; }
+.cbl-navbar-overflow-second-row .cbl-navbar-center {
+    grid-area: 2 / 1 / 3 / 3;
+    justify-content: flex-start;
+    padding: .3rem 0;
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+/* More ▼ overflow button */
+.cbl-nav-more .nav-link { padding-left: .6rem; padding-right: .6rem; }
+.cbl-nav-more .dropdown-menu { min-width: 10rem; }
+
+/* --------------------------------------------------------------------------
+   Dropdown style presets (cbl-dropdown-* on .cbl-navbar-shell)
+   -------------------------------------------------------------------------- */
+.cbl-dropdown-bordered .dropdown-menu {
+    box-shadow: none;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .5rem;
+}
+.cbl-dropdown-dark .dropdown-menu {
+    background: #1e293b;
+    border-color: #334155;
+    --bs-dropdown-color: #e2e8f0;
+    --bs-dropdown-link-color: #e2e8f0;
+    --bs-dropdown-link-hover-bg: rgba(255,255,255,.08);
+    --bs-dropdown-link-hover-color: #fff;
+    --bs-dropdown-divider-bg: #334155;
+}
+.cbl-dropdown-dark .dropdown-item       { color: #e2e8f0; }
+.cbl-dropdown-dark .dropdown-item:hover { background: rgba(255,255,255,.08); color: #fff; }
+.cbl-dropdown-dark .dropdown-item-text  { color: #94a3b8; }
+.cbl-dropdown-dark hr.dropdown-divider  { border-top-color: #334155; }
+.cbl-dropdown-branded .dropdown-menu {
+    background: var(--bs-primary);
+    border-color: rgba(0,0,0,.1);
+    --bs-dropdown-link-color: rgba(255,255,255,.9);
+    --bs-dropdown-link-hover-bg: rgba(255,255,255,.12);
+}
+.cbl-dropdown-branded .dropdown-item       { color: rgba(255,255,255,.9); }
+.cbl-dropdown-branded .dropdown-item:hover { background: rgba(255,255,255,.12); color: #fff; }
+.cbl-dropdown-branded .dropdown-item-text  { color: rgba(255,255,255,.65); }
+.cbl-dropdown-branded hr.dropdown-divider  { border-top-color: rgba(255,255,255,.2); }
+.cbl-navbar-mobile {
+    display: flex;
+}
+.cbl-navbar-mobile-menu {
+    display: none;
+}
+.cbl-navbar-mobile-menu.show {
+    display: block;
+}
+.cbl-navbar-offcanvas .offcanvas-body .navbar-nav {
+    align-items: stretch !important;
+    flex-direction: column !important;
+}
+.cbl-navbar-offcanvas .offcanvas-body .nav-item,
+.cbl-navbar-offcanvas .offcanvas-body .nav-link,
+.cbl-navbar-offcanvas .offcanvas-body .btn,
+.cbl-navbar-offcanvas .offcanvas-body .cbl-navbar-search {
+    width: 100%;
+}
+.cbl-navbar-zone {
+    display: flex;
+    align-items: center;
+    gap: var(--cbl-nav-gap, 12px);
+    min-width: 0;
+    max-width: 100%;
+}
+.cbl-navbar-center {
+    text-align: center;
+}
+.cbl-navbar-links {
+    gap: .25rem;
+}
+.cbl-navbar-links .nav-link {
+    border-radius: var(--cbl-nav-radius, 999px);
+    padding: .45rem .75rem;
+    font-size: var(--cbl-nav-link-size, 1rem);
+    color: var(--cbl-nav-link, inherit);
+    text-decoration: none;
+}
+.cbl-nav-links-pill .cbl-navbar-links .nav-link {
+    border: 1px solid transparent;
+}
+.cbl-nav-links-pill .cbl-navbar-links .nav-link:hover,
+.cbl-nav-links-pill .cbl-navbar-links .nav-link.active {
+    background: var(--cbl-nav-link-hover-bg, rgba(15, 23, 42, .08));
+    border-color: color-mix(in srgb, currentColor 18%, transparent);
+}
+.cbl-nav-links-plain .cbl-navbar-links .nav-link {
+    border-radius: 0;
+    padding: .35rem .45rem;
+}
+.cbl-nav-links-underline .cbl-navbar-links .nav-link {
+    border-radius: 0;
+    padding: .35rem .2rem;
+    border-bottom: 2px solid transparent;
+}
+.cbl-nav-links-underline .cbl-navbar-links .nav-link:hover,
+.cbl-nav-links-underline .cbl-navbar-links .nav-link.active {
+    border-bottom-color: currentColor;
+    background: transparent;
+}
+.cbl-navbar-links .nav-link:hover,
+.cbl-navbar-links .nav-link.active {
+    color: var(--cbl-nav-link-hover, inherit);
+    background: var(--cbl-nav-link-hover-bg, transparent);
+}
+.cbl-nav-block-search {
+    min-width: 0;
+    flex: 0 1 13rem;
+    max-width: 13rem;
+}
+.cbl-profile-btn {
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+.cbl-profile-btn::after {
+    margin-left: .25rem;
+}
+.cbl-navbar-search {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    min-width: 0;
+    width: 100%;
+}
+.cbl-navbar-search .form-control {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 2.25rem;
+    padding: .35rem .6rem;
+    font-size: .875rem;
+    border-radius: 999px;
+}
+.cbl-navbar-search .btn {
+    flex: 0 0 auto;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 .55rem;
+    margin-left: 0 !important;
+    border-radius: 999px;
+}
+/* Brand logo: respects the configured height but never taller than the navbar
+   inner area, so growing the logo can't force the navbar taller. To make the
+   logo bigger, raise the navbar height. */
+.cbl-brand-logo {
+    height: var(--cbl-brand-h, 32px);
+    max-height: calc(var(--cbl-nav-height, 76px) - (var(--cbl-nav-pad-y, 0.4rem) * 2) - 8px);
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+.cbl-navbar-mobile .navbar-brand,
+.cbl-navbar-zone .navbar-brand {
+    margin-right: 0;
+    font-size: var(--cbl-nav-brand-size, 1.6rem);
+    font-weight: var(--cbl-nav-brand-weight, 600);
+    color: var(--cbl-nav-text, inherit);
+}
+.cbl-navbar-dark .nav-link,
+.cbl-navbar-primary .nav-link,
+.cbl-navbar-dark .navbar-brand,
+.cbl-navbar-primary .navbar-brand {
+    color: rgba(255, 255, 255, .9);
+}
+.cbl-navbar-dark .nav-link:hover,
+.cbl-navbar-primary .nav-link:hover,
+.cbl-navbar-dark .nav-link.active,
+.cbl-navbar-primary .nav-link.active {
+    color: var(--cbl-nav-link-hover, #fff);
+    background: var(--cbl-nav-link-hover-bg, rgba(255, 255, 255, .12));
+}
+.cbl-navbar-dark.cbl-nav-links-pill .cbl-navbar-links .nav-link:hover,
+.cbl-navbar-dark.cbl-nav-links-pill .cbl-navbar-links .nav-link.active,
+.cbl-navbar-primary.cbl-nav-links-pill .cbl-navbar-links .nav-link:hover,
+.cbl-navbar-primary.cbl-nav-links-pill .cbl-navbar-links .nav-link.active {
+    border-color: color-mix(in srgb, #fff 32%, transparent);
+}
+.cbl-navbar-primary .btn-outline-primary,
+.cbl-navbar-dark .btn-outline-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: #fff;
+    --bs-btn-hover-bg: rgba(255,255,255,.12);
+    --bs-btn-hover-border-color: #fff;
+}
+@media (max-width: 991.98px) {
+    .cbl-navbar-shell .navbar-nav {
+        align-items: stretch !important;
+        flex-direction: column !important;
+    }
+    .cbl-navbar-shell .nav-item,
+    .cbl-navbar-shell .nav-link,
+    .cbl-navbar-shell .btn,
+    .cbl-navbar-search {
+        width: 100%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .cbl-nav-block-search {
+        flex: 0 0 auto;
+        max-width: none;
+    }
+    .cbl-navbar-search {
+        width: auto;
+    }
+    .cbl-navbar-search .form-control {
+        display: none;
+    }
+}
+@media (min-width: 992px) {
+    .cbl-navbar-desktop {
+        display: grid;
+    }
+    .cbl-navbar-shell .cbl-navbar-mobile,
+    .cbl-navbar-shell .cbl-navbar-mobile-menu {
+        display: none !important;
+    }
+}
+
+/* ── Edit mode: page navigation select in staff toolbar ─────────────────── */
+#staff-page-nav {
+    background: rgba(255, 255, 255, .15);
+    border: 1px solid rgba(255, 255, 255, .3);
+    color: #fff;
+    border-radius: 6px;
+    font-size: .8rem;
+    padding: .2rem .5rem;
+    max-width: 160px;
+    cursor: pointer;
+    outline: none;
+}
+#staff-page-nav:focus {
+    border-color: rgba(255, 255, 255, .7);
+}
+#staff-page-nav option {
+    background: #212529;
+    color: #fff;
+}
+
+/* ── Edit mode: floating "Visit →" hint on intercepted links ─────────────── */
+#cbl-follow-hint {
+    position: fixed;
+    z-index: 10500;
+    display: none; /* shown via JS */
+    align-items: center;
+    gap: 3px;
+    padding: 3px 10px 3px 7px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, .82);
+    color: #fff !important;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none !important;
+    pointer-events: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .28);
+    line-height: 1.4;
+    transition: background .1s ease;
+    cursor: pointer;
+}
+#cbl-follow-hint:hover {
+    background: rgba(0, 0, 0, .95);
+}
+
+/* ── Announcement banners (above / below navbar) ──────────────────────────── */
+.cbl-banner {
+    width: 100%;
+    font-size: .9rem;
+    line-height: 1.4;
+}
+.cbl-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    padding: .55rem 1rem;
+    position: relative;
+    text-align: center;
+}
+.cbl-banner-msg { flex: 1 1 auto; }
+.cbl-banner-link {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    white-space: nowrap;
+}
+.cbl-banner-close {
+    position: absolute;
+    right: .5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font-size: 1.4rem;
+    line-height: 1;
+    opacity: .7;
+    cursor: pointer;
+    padding: 0 .4rem;
+}
+.cbl-banner-close:hover { opacity: 1; }
+
+/* ── Icon picker (item inspector) ─────────────────────────────────────────── */
+.cbl-icon-preview {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 6px;
+    font-size: 1.1rem;
+}
+.cbl-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+    max-height: 156px;
+    overflow-y: auto;
+    padding: 4px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 6px;
+    background: #fff;
+}
+.cbl-icon-choice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background: transparent;
+    color: #333;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background .1s ease, border-color .1s ease;
+}
+.cbl-icon-choice:hover {
+    background: rgba(var(--bs-primary-rgb), .1);
+}
+.cbl-icon-choice-active {
+    border-color: var(--bs-primary);
+    background: rgba(var(--bs-primary-rgb), .15);
+}
+
+/* Edit mode: hovering an editable icon hints it is clickable */
+body.edit-mode .cbl-icon-edit {
+    cursor: pointer;
+    border-radius: 6px;
+    transition: outline-color .1s ease;
+    outline: 2px dashed transparent;
+    outline-offset: 3px;
+}
+body.edit-mode .cbl-icon-edit:hover {
+    outline-color: rgba(var(--bs-primary-rgb), .5);
+}
+
+/* ── Button hover effects ─────────────────────────────────────────────────── */
+.cbl-btn-hover-lift {
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.cbl-btn-hover-lift:hover,
+.cbl-btn-hover-lift:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .18) !important;
+}
+
+.cbl-btn-hover-glow {
+    transition: box-shadow .18s ease;
+}
+.cbl-btn-hover-glow:hover,
+.cbl-btn-hover-glow:focus-visible {
+    box-shadow: 0 0 0 4px rgba(var(--bs-primary-rgb), .28) !important;
+}
+
+.cbl-btn-hover-pulse {
+    transition: transform .14s ease;
+}
+.cbl-btn-hover-pulse:hover,
+.cbl-btn-hover-pulse:focus-visible {
+    transform: scale(1.05);
+}
